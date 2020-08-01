@@ -16,6 +16,17 @@ render() {
 
 }
 
+componentDidMount = () => {
+  const todos = localStorage.getItem('todos');
+  if(todos) {
+    console.log('Has todos', todos);
+
+  } else {
+    console.log('No todos')
+
+  }
+
+}
 
 }
 
