@@ -6,6 +6,13 @@ import './App.css';
 
 class App extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+todos: []
+    };
+  }
+
 render() {
   return(
     <div>
