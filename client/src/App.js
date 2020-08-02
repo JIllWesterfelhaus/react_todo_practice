@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './TodoList/todoList';
 import TodoItem from './TodoItem/todoItem';
+import AddTodo from './AddTodo/addTodo';
 
 import './App.css';
 
@@ -16,8 +17,7 @@ todos: []
 render() {
   return(
     <div>
-    <TodoList></TodoList>
-    <TodoItem></TodoItem>
+    <AddTodo add TodoFn={this.addTodo}></AddTodo>
     </div>
   );
 
@@ -26,14 +26,18 @@ render() {
 componentDidMount = () => {
   const todos = localStorage.getItem('todos');
   if(todos) {
-    console.log('Has todos', todos);
-
+    const savedTodos = JSON.parse(todos);
+    this.setState({ todos: savedTodos  });
+    
   } else {
     console.log('No todos')
 
   }
 
 }
+
+addTodo = (todo) => this.setState({ todos: [...this.state.todos, todo]
+})
 
 }
 
