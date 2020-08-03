@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoList from './TodoList/todoList';
-import TodoItem from './TodoItem/todoItem';
+
 import AddTodo from './AddTodo/addTodo';
 
 import './App.css';
@@ -17,7 +17,8 @@ todos: []
 render() {
   return(
     <div>
-    <AddTodo add TodoFn={this.addTodo}></AddTodo>
+    <AddTodo addTodoFn={this.addTodo}></AddTodo>
+    <TodoList todos = {this.state.todos}></TodoList>
     </div>
   );
 
@@ -30,16 +31,21 @@ componentDidMount = () => {
     this.setState({ todos: savedTodos  });
     
   } else {
-    console.log('No todos')
+    console.log('No todos');
 
   }
 
 }
 
-addTodo = (todo) => this.setState({ todos: [...this.state.todos, todo]
-})
+addTodo = async (todo) => {
+  await this.setState ({  todos:  [...this.state.todos, todo]})
+  localStorage.setItem('todos', JSON.stringify(this.state.todos))
+  console.log(localStorage.getItem('todos'));
+}
 
 }
+
+
 
 
 export default App;
