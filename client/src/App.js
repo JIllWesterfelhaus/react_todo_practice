@@ -37,7 +37,7 @@ componentDidMount = () => {
 }
 
 addTodo = async (todo) => {
-  await this.setState ({  todos:  [...this.state.todos, {
+  await this.setState({  todos:  [...this.state.todos, {
     text: todo,
     completed: false
   }] });
@@ -57,7 +57,7 @@ updateTodo = async (todo) => {
 
   });
  await this.setState({ todos: newTodos });
- localStorage.setItem('todos', this.state.todos);
+ localStorage.setItem('todos', JSON.stringify(this.state.todos));
 
   
 }
