@@ -1,11 +1,15 @@
 body {
     background-image: linear-gradient(to right, rgb(250, 215, 221), rgb(223, 124, 124));
+    font-family: fantasy;
+    font-size: x-large;
 }
 
 .todoListContainer, .addTodoContainer {
     display: flex;
   align-items: center;
   justify-content: center;
+  font-family: fantasy;
+  font-size: x-large;
 }
 
 .addTodoContainer {
