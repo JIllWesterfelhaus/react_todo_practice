@@ -13,7 +13,7 @@ class TodoList extends React.Component {
             {
                todos.map((_todo, _index) => {
                 return(
-                <TodoItem updatedTodoFn = {this.updateTodo} key={_index} todo={_todo}></TodoItem>
+                <TodoItem updateTodoFn = {this.updatedTodo} key={_index} todo={_todo}></TodoItem>
 
                 )
 
